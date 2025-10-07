@@ -1,0 +1,14 @@
+name: Triggered Workflow
+
+on:
+  repository_dispatch:
+    types: [servicenow-change-approved]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo trigger
+        run: echo "Triggered by ServiceNow Change Approval"
+          echo Add other actions to build,
+          echo test, and deploy your project.
