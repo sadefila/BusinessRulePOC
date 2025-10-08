@@ -12,3 +12,12 @@ jobs:
         run: echo "Triggered by ServiceNow Change Approval"
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Notify ServiceNow
+        run: |
+              curl -X POST https://your-instance.service-now.com/api/github_callback/update_ticket \
+              -H "Content-Type: application/json" \
+              -H "Authorization: Basic ${{ secrets.SERVICENOW_AUTH }}" \
+               -d '{
+               "change_number": "CHG0001234",
+               "status": "Completed"
+              }'
