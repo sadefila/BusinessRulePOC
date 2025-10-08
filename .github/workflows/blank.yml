@@ -18,6 +18,6 @@ jobs:
               -H "Content-Type: application/json" \
               -H "Authorization: Basic ${{ secrets.SERVICENOW_AUTH }}" \
                -d '{
-               "change_number": "CHG0001234",
+               "change_number": "CHG0030016",
                "status": "Completed"
               }'
