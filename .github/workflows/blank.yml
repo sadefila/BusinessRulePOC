@@ -14,7 +14,7 @@ jobs:
           echo test, and deploy your project.
       - name: Notify ServiceNow
         run: |
-              curl -X POST https://your-instance.service-now.com/api/github_callback/update_ticket \
+              curl -X POST https://dev252430.service-now.com//api/github_callback/update_ticket \
               -H "Content-Type: application/json" \
               -H "Authorization: Basic ${{ secrets.SERVICENOW_AUTH }}" \
                -d '{
