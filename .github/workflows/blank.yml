@@ -14,13 +14,14 @@ jobs:
           echo test, and deploy your project.
       - name: Notify ServiceNow
         run: |
-              curl -X POST https://dev252430.service-now.com//api/github_callback/update_ticket \
+              curl -X POST "https:dev252430.service-now.com/api/xyourscope/github_response/workflow-response" \
               -H "Content-Type: application/json" \
-              -H "Authorization: Basic ${{ secrets.SERVICENOW_AUTH }}" \
-               -d '{
-               "change_number": "CHG0030019",
-               "status": "Completed"
-              }'
+              -u "${{ secrets.SNUSERNAME }}:${{ secrets.SNPASSWORD }}" \
+              -d '{
+              "workflow_id": "${{ github.workflow }}",
+              "status": "completed",
+              "output": "All steps passed"
+                  }'
   deploy:
     runs-on: ubuntu-latest
 
