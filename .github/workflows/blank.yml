@@ -22,26 +22,4 @@ jobs:
               "status": "completed",
               "output": "All steps passed"
                   }'
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Azure CLI
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Install Terraform
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.5.7  # Or your preferred version
-
-    - name: Deploy with Terraform
-      run: |
-        cd terraform
-        terraform init
-        terraform plan
-        terraform apply -auto-approve
+ 
