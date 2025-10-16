@@ -21,7 +21,6 @@ jobs:
               "workflow_id": "${{ github.workflow }}",
               "status": "completed",
               "output": "All steps passed"
-              "output": "All steps pa
                   }'
 
  
